@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-// @ts-ignore
-import { VueTelInput } from 'vue-tel-input';
-import 'vue-tel-input/vue-tel-input.css';
 import ContactInfo from './Contact/ContactInfo.vue';
 import ServiceSelector from './Contact/ServiceSelector.vue';
 import UrgencySelector from './Contact/UrgencySelector.vue';
@@ -62,7 +59,7 @@ const serviceOptions = [
               <div class="input-group tel-input-group">
                 <vue-tel-input 
                   v-model="formData.phone" @input="onPhoneInput"
-                  :dropdownOptions="{ showSearchBox: true, showDialCodeInList: true, showFlags: true }"
+                  :dropdownOptions="{ showSearchBox: true, showDialCodeInList: true, showFlags: true, showDialCodeInSelection: true }"
                   :inputOptions="{ placeholder: ' ', required: true }"
                   :autoFormat="true"
                   mode="international" defaultCountry="auto" class="elite-tel-input"
@@ -194,62 +191,19 @@ const serviceOptions = [
     }
 
     .vti__dropdown {
-      padding: 0 12px 0 0;
+      padding: 0 12px;
       border-radius: 0;
       background: transparent;
-      transition: all 0.2s;
-      
       &:hover { background: rgba($color-primary, 0.05); }
-      &.open { background: transparent; }
     }
 
     .vti__dropdown-list {
       border: 1px solid #eee;
-      border-top: none;
-      border-radius: 0 0 16px 16px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      background: white;
-      margin-top: 1px;
-      padding: 10px 0;
-      width: 300px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      margin-top: 5px;
       z-index: 1000;
-      
-      &.below {
-        top: calc(100% + 1px);
-      }
-    }
-
-    .vti__searchbar {
-      margin: 8px 12px 12px;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      padding: 12px;
-      font-size: 0.9rem;
-      outline: none;
-      font-family: inherit;
-      width: calc(100% - 24px);
-      
-      &:focus {
-        border-color: $color-primary;
-        box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
-      }
-    }
-
-    .vti__dropdown-item {
-      padding: 12px 16px;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      
-      &:hover, &.vti__dropdown-item--highlight {
-        background-color: #f8f9fa;
-        color: $color-primary;
-      }
-
-      .vti__flag { margin-right: 0; }
-      strong { font-weight: 500; }
+      width: 280px;
     }
 
     .vti__input {
@@ -260,8 +214,13 @@ const serviceOptions = [
       font-family: inherit;
       border: none;
       outline: none;
-
       &::placeholder { color: transparent; }
+    }
+
+    .vti__selection {
+      font-size: 1.1rem;
+      color: $color-secondary;
+      font-weight: 500;
     }
   }
 

@@ -17,11 +17,14 @@ export function useContactForm() {
     formStatus.value = 'loading';
     
     const fullNote = `
---- DETALLES DE SOLICITUD ---
+--- NUEVA SOLICITUD ---
+Nombre: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Teléfono: ${formData.phone}
 Servicio: ${formData.serviceType || 'No especificado'}
 Urgencia: ${formData.urgency?.toUpperCase()}
 Mensaje: ${formData.message || 'Sin mensaje adicional'}
------------------------------
+----------------------
     `.trim();
 
     const payload: GHLContactPayload = {

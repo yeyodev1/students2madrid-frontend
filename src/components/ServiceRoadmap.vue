@@ -28,27 +28,45 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .roadmap {
-  background-color: $color-accent;
+  background: linear-gradient(135deg, rgba($color-primary, 0.05) 0%, rgba($color-secondary, 0.05) 100%);
   padding: $spacing-xl 0;
-  border-radius: 40px;
-  margin: $spacing-lg $spacing-sm;
+  border-radius: 60px;
+  margin: $spacing-xl $spacing-sm;
+  position: relative;
+  overflow: hidden;
 
-  @media (min-width: $breakpoint-md) {
-    margin: $spacing-xl auto;
-    padding: $spacing-xl 2rem;
+  @media (max-width: $breakpoint-md) {
+    border-radius: 40px;
+    padding: $spacing-xl $spacing-md;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba($color-primary, 0.1) 0%, transparent 70%);
+    z-index: 0;
   }
 
   &__title {
     text-align: center;
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
     color: $color-secondary;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-xl;
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
   }
 
   &__grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: $spacing-lg;
+    position: relative;
+    z-index: 1;
 
     @media (min-width: $breakpoint-md) {
       grid-template-columns: repeat(2, 1fr);
@@ -61,37 +79,49 @@ const props = defineProps({
 
   &__step {
     background-color: $color-white;
-    padding: $spacing-md;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: $transition-base;
+    padding: $spacing-lg;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba($color-primary, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
     &:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+      border-color: $color-primary;
     }
   }
 
   &__number {
-    width: 40px;
-    height: 40px;
-    background-color: $color-primary;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 10%) 100%);
     color: $color-white;
-    border-radius: 50%;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
-    margin-bottom: $spacing-sm;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: $spacing-md;
+    transform: rotate(-10deg);
+    box-shadow: 0 10px 20px rgba($color-primary, 0.3);
   }
 
   &__step-title {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     color: $color-secondary;
     margin-bottom: $spacing-sm;
+    font-weight: 700;
   }
 
   &__step-description {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.6;
     color: $color-text-muted;
   }
 }
