@@ -1,0 +1,39 @@
+// --- Color Palette (Reference: gostudyin.com) ---
+$color-primary: #EF2D4D; // Cherry Red
+$color-secondary: #020F30; // Dark Navy
+$color-accent: #ABF970; // Mint/Meadow Green
+$color-accent-light: #C1E695;
+$color-bg-light: #F8F9FA;
+$color-white: #FFFFFF;
+$color-text-main: #1A1A1A;
+$color-text-muted: #666666;
+
+// --- Typography ---
+$font-family-headings: 'Playfair Display', serif;
+$font-family-body: 'DM Sans', sans-serif;
+
+// --- Spacing ---
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 4rem;
+$spacing-xl: 8rem;
+
+// --- Breakpoints ---
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// --- Transitions ---
+$transition-base: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+// --- Border Radius ---
+$border-radius-sm: 12px;
+$border-radius-md: 24px;
+$border-radius-lg: 40px;
+
+// --- Approachable Colors ---
+$color-soft-mint: #f4fdf8;
+$color-soft-rose: #fff5f6;
